@@ -2,117 +2,20 @@
   "root": true,
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es2021": true,
+    "es2022": true,
     "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "./base.js",
+    "./import.js",
+    "./jest.js",
+    "./node.js",
+    "./prettier.js",
+    "./react.js",
+    "./typescript.js"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "rules": {
-    "@typescript-eslint/comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "@typescript-eslint/comma-spacing": ["error"],
-    "@typescript-eslint/no-redeclare": ["error"],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { "argsIgnorePattern": "^_" }
-    ],
-    "@typescript-eslint/object-curly-spacing": [
-      "error",
-      "always"
-    ],
-    "@typescript-eslint/semi": ["error"],
-    "@typescript-eslint/type-annotation-spacing": ["error"],
-    "array-bracket-newline": ["error"],
-    "array-bracket-spacing": ["error"],
-    "array-element-newline": [
-      "error",
-      "consistent"
-    ],
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
-    "arrow-spacing": ["error"],
-    "brace-style": ["error"],
-    "eol-last": ["error"],
-    "function-call-argument-newline": [
-      "error",
-      "consistent"
-    ],
-    "generator-star-spacing": [
-      "error",
-      "before"
-    ],
-    "indent": [
-      "error",
-      2
-    ],
-    "key-spacing": ["error"],
-    "keyword-spacing": ["error"],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1,
-        "maxEOF": 0,
-        "maxBOF": 0
-      }
-    ],
-    "no-multi-spaces": ["error"],
-    "no-trailing-spaces": ["error"],
-    "no-unused-vars": ["error"],
-    "no-var": ["error"],
-    "no-whitespace-before-property": ["error"],
-    "object-curly-newline": [
-      "error",
-      {
-        "consistent": true,
-        "multiline": true
-      }
-    ],
-    "object-property-newline": [
-      "error",
-      { "allowAllPropertiesOnSameLine": true }
-    ],
-    "prefer-const": ["error"],
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "require-await": ["error"],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "semi-spacing": ["error"],
-    "semi-style": ["error"],
-    "space-before-blocks": ["error"],
-    "space-before-function-paren": [
-      "error",
-      "never"
-    ],
-    "space-in-parens": ["error"],
-    "space-infix-ops": ["error"],
-    "space-unary-ops": ["error"]
   }
 }
