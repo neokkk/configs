@@ -1,0 +1,8 @@
+[user]
+	name = neokkk
+	email = seven3126@gmail.com
+[core]
+	pager = less -x1,5
+	editor = vim
+[credential]
+	helper = store
