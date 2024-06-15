@@ -9,7 +9,7 @@ tar zxf lua-5.4.6.tar.gz
 cd lua-5.4.6
 make && make install
 cd ..
-rm -rf lua-5.4.6
+rm -rf lua-5.4.6*
 
 # Install Neovim
 
