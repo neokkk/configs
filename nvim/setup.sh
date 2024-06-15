@@ -7,7 +7,8 @@ sudo apt install -y jq
 curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
 tar zxf lua-5.4.6.tar.gz
 cd lua-5.4.6
-make && make install
+sudo make
+sudo make install
 cd ..
 rm -rf lua-5.4.6*
 
@@ -17,7 +18,9 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
-echo "alias nv='nvim'" >> ~/.bashrc
+echo "export PATH=\"\$PATH:/opt/nvim-linux64\"/bin" >> ~/.bashrc
+echo "alias nv=\"nvim\"" >> ~/.bashrc
+source ~/.bashrc
 
 git clone https://github.com/neokkk/configs.git
 mkdir -p ~/.config/nvim
@@ -41,7 +44,7 @@ if [ $? -ne 0 ]; then
     curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
     source ~/.bashrc
 
-    nvm install -lts
+    nvm install --lts
     node --version
     if [ $? -ne 0 ]; then
         echo "Unable to install Node.js"
