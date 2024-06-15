@@ -2,6 +2,14 @@
 
 sudo apt update
 
+sudo apt install neovim lua5.4
+echo "alias nv='nvim'" >> ~/.bashrc
+
+git clone https://github.com/neokkk/configs.git
+mkdir -p ~/.config/nvim
+cp -r configs/dotfiles/nvim/* ~/.config/nvim/
+rm -rf configs
+
 # Install Dependencies for Telescope
 
 apt list --installed ripgrep | grep installed
@@ -15,7 +23,10 @@ fi
 node --version
 
 if [ $? -ne 0 ]; then
-    sudo apt install nvm
+	tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
+	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
+	source ~/.bashrc
+
     nvm install -lts
     node --version
     if [ $? -ne 0 ]; then
