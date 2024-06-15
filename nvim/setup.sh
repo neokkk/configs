@@ -24,7 +24,7 @@ source ~/.bashrc
 
 git clone https://github.com/neokkk/configs.git
 mkdir -p ~/.config/nvim
-cp -r configs/dotfiles/nvim/* ~/.config/nvim/
+cp -r configs/nvim/* ~/.config/nvim/
 rm -rf configs
 
 # Install Dependencies for Telescope
