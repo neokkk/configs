@@ -2,7 +2,17 @@
 
 sudo apt update
 
-sudo apt install lua5.4
+sudo apt install -y jq
+
+curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
+tar zxf lua-5.4.6.tar.gz
+cd lua-5.4.6
+make && make install
+cd ..
+rm -rf lua-5.4.6
+
+# Install Neovim
+
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
@@ -27,9 +37,9 @@ fi
 node --version
 
 if [ $? -ne 0 ]; then
-	tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
-	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
-	source ~/.bashrc
+    tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
+    curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
+    source ~/.bashrc
 
     nvm install -lts
     node --version
