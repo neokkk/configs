@@ -11,6 +11,7 @@ return {
             mapKey("<leader>fg", builtin.live_grep)
             mapKey("<leader>fb", builtin.buffers)
             mapKey("<leader>fh", builtin.help_tags)
+            mapKey("<leader>fs", builtin.grep_string)
         end,
     },
     {

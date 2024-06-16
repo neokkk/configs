@@ -11,7 +11,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "clangd", "lua_ls", "tsserver" }
+                ensure_installed = { "clangd", "lua_ls", "pyright", "tsserver" }
             })
         end
     },
@@ -21,11 +21,9 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.clangd.setup({})
             lspconfig.lua_ls.setup({})
+            lspconfig.pyright.setup({})
             lspconfig.tsserver.setup({})
 
-            -- vim.lsp.buf.hover
-            -- vim.lsp.buf.definition
-            -- vim.lsp.buf.code_action
             mapKey("K", vim.lsp.buf.hover)
             mapKey("gd", vim.lsp.buf.definition)
             mapKey("<leader>ca", vim.lsp.buf.code_action)
