@@ -2,16 +2,29 @@
 
 sudo apt update
 
-sudo apt install lua5.4
+sudo apt install -y jq unzip
+
+curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
+tar zxf lua-5.4.6.tar.gz
+cd lua-5.4.6
+sudo make
+sudo make install
+cd ..
+rm -rf lua-5.4.6*
+
+# Install Neovim
+
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
-echo "alias nv='nvim'" >> ~/.bashrc
+echo "export PATH=\"\$PATH:/opt/nvim-linux64\"/bin" >> ~/.bashrc
+echo "alias nv=\"nvim\"" >> ~/.bashrc
+source ~/.bashrc
 
 git clone https://github.com/neokkk/configs.git
 mkdir -p ~/.config/nvim
-cp -r configs/dotfiles/nvim/* ~/.config/nvim/
+cp -r configs/nvim/* ~/.config/nvim/
 rm -rf configs
 
 # Install Dependencies for Telescope
@@ -27,11 +40,11 @@ fi
 node --version
 
 if [ $? -ne 0 ]; then
-	tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
-	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
-	source ~/.bashrc
+    tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
+    curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
+    source ~/.bashrc
 
-    nvm install -lts
+    nvm install --lts
     node --version
     if [ $? -ne 0 ]; then
         echo "Unable to install Node.js"
