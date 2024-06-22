@@ -18,14 +18,10 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
-echo "export PATH=\"\$PATH:/opt/nvim-linux64\"/bin" >> ~/.bashrc
-echo "alias nv=\"nvim\"" >> ~/.bashrc
+echo "
+export PATH=\"\$PATH:/opt/nvim-linux64\"/bin
+alias nv=\"nvim\"" >> ~/.bashrc
 source ~/.bashrc
-
-git clone https://github.com/neokkk/configs.git
-mkdir -p ~/.config/nvim
-cp -r configs/nvim/* ~/.config/nvim/
-rm -rf configs
 
 # Install Dependencies for Telescope
 
@@ -42,10 +38,12 @@ node --version
 if [ $? -ne 0 ]; then
     tag=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r ".tag_name")
     curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$tag/install.sh" | bash
+    sleep 1
     source ~/.bashrc
 
     nvm install --lts
     node --version
+
     if [ $? -ne 0 ]; then
         echo "Unable to install Node.js"
         exit 1
