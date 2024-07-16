@@ -2,7 +2,11 @@
 
 sudo apt update
 
-sudo apt install -y jq unzip
+sudo apt install -y jq unzip python3 python3-pip python-is-python3 firefox-geckodriver
+
+pip install notebook nbclassic jupyter-console selenium
+
+# Install Lua
 
 curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
 tar zxf lua-5.4.6.tar.gz
@@ -52,3 +56,4 @@ fi
 
 git clone https://github.com/github/copilot.vim.git \
     ~/.config/nvim/pack/github/start/copilot.vim
+
