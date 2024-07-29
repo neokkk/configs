@@ -2,7 +2,7 @@
 
 sudo apt update
 
-sudo apt install -y jq unzip python3 python3-pip python-is-python3 lua5.4
+sudo apt install -y curl jq unzip python3 python-is-python3 lua5.4
 
 pip install notebook nbclassic jupyter-console selenium
 
