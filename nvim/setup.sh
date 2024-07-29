@@ -2,19 +2,9 @@
 
 sudo apt update
 
-sudo apt install -y jq unzip python3 python3-pip python-is-python3 firefox-geckodriver
+sudo apt install -y jq unzip python3 python3-pip python-is-python3 lua5.4
 
 pip install notebook nbclassic jupyter-console selenium
-
-# Install Lua
-
-curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
-tar zxf lua-5.4.6.tar.gz
-cd lua-5.4.6
-sudo make
-sudo make install
-cd ..
-rm -rf lua-5.4.6*
 
 # Install Neovim
 
