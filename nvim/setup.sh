@@ -2,9 +2,18 @@
 
 sudo apt update
 
-sudo apt install -y curl jq unzip python3 python-is-python3 lua5.4 neovim
+sudo apt install -y curl jq unzip lua5.4
 
-pip install notebook nbclassic jupyter-console selenium
+# Install Neovim
+
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+rm nvim-linux64.tar.gz
+echo "
+export PATH=\"\$PATH:/opt/nvim-linux64\"/bin
+alias nv=\"nvim\"" >> ~/.bashrc
+source ~/.bashrc
 
 # Install Dependencies for Telescope
 
