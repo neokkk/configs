@@ -23,5 +23,4 @@ opt.termguicolors = true
 -- etc
 opt.cmdheight = 1
 opt.encoding = "UTF-8"
-opt.mouse:append("a") -- mouse usage on
 opt.scrolloff = 10
