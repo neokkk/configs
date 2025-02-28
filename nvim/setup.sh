@@ -11,7 +11,7 @@ sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 rm nvim-linux-x86_64.tar.gz
 echo "
-export PATH=\$PATH:/opt/nvim-linux64/bin
+export PATH=\$PATH:/opt/nvim-linux-x86_64/bin
 alias nv=\"nvim\"" >> ~/.bashrc
 source ~/.bashrc
 
