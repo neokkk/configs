@@ -1,19 +1,15 @@
 #!/bin/bash
 
 sudo apt update
-
 sudo apt install -y curl jq unzip lua5.4
+
+ARCH=$(uname -m)
 
 # Install Neovim
 
-curl -LO https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-rm nvim-linux-x86_64.tar.gz
-echo "
-export PATH=\$PATH:/opt/nvim-linux-x86_64/bin
-alias nv=\"nvim\"" >> ~/.bashrc
-source ~/.bashrc
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-$ARCH.appimage
+chmod u+x nvim-linux-$ARCH.appimage
+sudo mv nvim-linux-$ARCH.appimage /usr/local/bin/nvim
 
 # Install Dependencies for Telescope
 
@@ -23,7 +19,7 @@ if [ $? -ne 0 ]; then
     sudo apt install ripgrep
 fi
 
-# Install Github Copilot
+# Install GitHub Copilot
 
 node --version
 
